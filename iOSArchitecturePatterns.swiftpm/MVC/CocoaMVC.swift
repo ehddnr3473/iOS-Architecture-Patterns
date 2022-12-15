@@ -11,6 +11,10 @@ import Foundation
 /// Model object
 struct Counter {
     var number: Int
+    
+    mutating func increase() {
+        number += 1
+    }
 }
 
 /// View + Controller object
@@ -29,7 +33,7 @@ class CounterViewController: UIViewController {
     }
     
     @objc func touchUpButton() {
-        counter.number += 1
+        counter.increase()
         numberLabel.text = String(counter.number)
     }
 }
