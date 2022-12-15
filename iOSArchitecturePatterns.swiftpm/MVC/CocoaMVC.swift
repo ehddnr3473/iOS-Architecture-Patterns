@@ -12,13 +12,14 @@ import Foundation
 struct Counter {
     var number: Int
     
-    mutating func increase() {
+    mutating func increase() -> Int {
         number += 1
+        return number
     }
 }
 
 /// View + Controller object
-class CounterViewController: UIViewController {
+class CountingViewController: UIViewController {
     var counter: Counter!
     // UI Component
     let numberLabel = UILabel()
@@ -33,8 +34,7 @@ class CounterViewController: UIViewController {
     }
     
     @objc func touchUpButton() {
-        counter.increase()
-        numberLabel.text = String(counter.number)
+        numberLabel.text = String(counter.increase())
     }
 }
 
